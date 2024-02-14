@@ -1,5 +1,5 @@
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
-//const { faunaFetch } = require('./utils/fauna');
+const { faunaFetch } = require('./utils/fauna');
 
 exports.handler = async (event) => {
   const { user } = JSON.parse(event.body);
@@ -36,10 +36,10 @@ exports.handler = async (event) => {
 
   return {
     statusCode: 200,
-    /*body: JSON.stringify({
+    body: JSON.stringify({
       app_metadata: {
         roles: ['free'],
       },
-    }),*/
+    }),
   };
 };
